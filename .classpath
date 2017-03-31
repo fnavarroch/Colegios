@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="Colegios/" kind="src" path="Colegios/src"/>
+	<classpathentry kind="src" path="Colegios/src/Colegios"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Colegios/bin"/>
+</classpath>
