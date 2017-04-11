@@ -1,3 +1,5 @@
+package Colegios;
+
 /**package Colegios;
 
 public class Principal

@@ -1,3 +1,5 @@
+package Colegios;
+
 import java.io.*;
 public class Lectura
 {
