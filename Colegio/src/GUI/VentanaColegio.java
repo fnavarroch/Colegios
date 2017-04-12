@@ -5,13 +5,13 @@
  */
 package GUI;
 
+import Colegios.Colegio;
+
 /**
  *
  * @author wolf1
  */
 public class VentanaColegio extends javax.swing.JFrame {
-
-    private Object lNombre;
 
     /**
      * Creates new form VentanaColegio
@@ -21,6 +21,7 @@ public class VentanaColegio extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("Colegio");
+             
         
     }
 
@@ -38,21 +39,15 @@ public class VentanaColegio extends javax.swing.JFrame {
         javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
         javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
-        javax.swing.JLabel lNombre = new javax.swing.JLabel();
-        javax.swing.JLabel lDir = new javax.swing.JLabel();
-        javax.swing.JLabel lcodigo = new javax.swing.JLabel();
+        lbNombre = new javax.swing.JLabel();
+        lbDireccion = new javax.swing.JLabel();
+        lbCodigo = new javax.swing.JLabel();
+        javax.swing.JButton jButton1 = new javax.swing.JButton();
+        javax.swing.JButton jButton2 = new javax.swing.JButton();
+        javax.swing.JButton jButton3 = new javax.swing.JButton();
         javax.swing.JMenuBar jMenuBar1 = new javax.swing.JMenuBar();
-        javax.swing.JMenu jMenu1 = new javax.swing.JMenu();
-        javax.swing.JMenuItem verDatos = new javax.swing.JMenuItem();
-        javax.swing.JMenuItem actDatos = new javax.swing.JMenuItem();
-        javax.swing.JMenuItem delDatos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
 
         atras.setText("Atras");
         atras.addActionListener(new java.awt.event.ActionListener() {
@@ -72,49 +67,26 @@ public class VentanaColegio extends javax.swing.JFrame {
         jLabel4.setText("Datos del Colegio");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        lNombre.setText("jLabel5");
-
-        lDir.setText("jLabel5");
-
-        lcodigo.setText("jLabel5");
-
-        jMenu1.setText("Archivo");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        verDatos.setText("Ver Datos");
-        jMenu1.add(verDatos);
-
-        actDatos.setText("Actualizar Datos");
-        actDatos.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actDatosActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jMenu1.add(actDatos);
 
-        delDatos.setText("Eliminar Datos");
-        delDatos.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-                delDatosAncestorRemoved(evt);
-            }
-        });
-        delDatos.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("Ver Datos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delDatosActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        jMenu1.add(delDatos);
-
-        jMenuBar1.add(jMenu1);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,18 +100,27 @@ public class VentanaColegio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lNombre)
-                            .addComponent(lDir)
-                            .addComponent(lcodigo))))
-                .addContainerGap(195, Short.MAX_VALUE))
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lbNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                                    .addComponent(lbCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(76, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(36, 36, 36)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(43, 43, 43))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,16 +130,21 @@ public class VentanaColegio extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lNombre))
+                    .addComponent(lbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(lDir))
+                    .addComponent(lbDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(lcodigo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                    .addComponent(lbCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(32, 32, 32)
                 .addComponent(atras)
                 .addContainerGap())
         );
@@ -171,33 +157,31 @@ public class VentanaColegio extends javax.swing.JFrame {
         atras.setVisible(true);
         dispose();
     }//GEN-LAST:event_atrasActionPerformed
-
-    private void actDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actDatosActionPerformed
-
-    }//GEN-LAST:event_actDatosActionPerformed
-
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void delDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delDatosActionPerformed
-        // TODO add your handling code here:
-      
-    }//GEN-LAST:event_delDatosActionPerformed
-
-    private void delDatosAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_delDatosAncestorRemoved
-        // TODO add your handling code here:
-    
-        
-    }//GEN-LAST:event_delDatosAncestorRemoved
   String nombre, direccion;
   int codigo;
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    lNombre.setText(nombre);
-    
-        
-    }//GEN-LAST:event_formWindowActivated
+        SubMenuColegio atras = new SubMenuColegio();
+        atras.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    @SuppressWarnings("static-access")
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         SubMenuColegio datos = new SubMenuColegio();
+         lbNombre.setText(datos.nombre);
+         lbDireccion.setText(datos.direccion);
+         lbCodigo.setText(String.valueOf(datos.codigo));
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        lbNombre.setText("");
+        lbDireccion.setText("");
+        lbCodigo.setText("");
+        Colegio colegio = new Colegio();
+        Colegio.eliminarColegio();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,5 +219,8 @@ public class VentanaColegio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    javax.swing.JLabel lbCodigo;
+    javax.swing.JLabel lbDireccion;
+    javax.swing.JLabel lbNombre;
     // End of variables declaration//GEN-END:variables
 }
